@@ -1,4 +1,4 @@
-import { SocketAddress } from "net";
+
 
 class APIFilters {
     query: any
@@ -19,32 +19,31 @@ class APIFilters {
         }
         :{};
 
-        this.query = this.query.find({...location})
+        this.query = this.query.find({...location});
         return this;
     }
 
     filter(): APIFilters {
 
         const queryCopy = {...this.queryStr}
+        console.log('queryCopy', queryCopy);
         
-        
-        const removefields = ['location']
-        removefields.forEach((el) => delete queryCopy[el])
+        const removeFields = ['location','page']
+        removeFields.forEach((el) => delete queryCopy[el])
 
-        this.query = this.query.find(queryCopy)
         return this
     }
 
-    pagination(resPerPage: number): APIFilters{
-
+    pagination(resPerPage: number): APIFilters {
         const currentPage = Number(this.queryStr?.page) || 1;
-        const skip = resPerPage * (currentPage -1);
+        const skip = resPerPage*(currentPage - 1);
 
-        this.query = this.query.limit(resPerPage).skip(skip)
-        return this
+        this.query = this.query.limit(resPerPage).skip(skip);
 
-
+        return this;
     }
+
+
 }
 
 export default APIFilters;

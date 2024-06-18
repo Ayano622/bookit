@@ -3,42 +3,41 @@ import Room from "../models/room";
 import { IRoom } from "../models/room";
 import ErrorHandler from "../utils/errorHandler";
 import { catchAsyncErrors } from "../middlewares/catchAsyncErrors";
-import APIFilters from "../utils/apiFilters";
+import APIFilters from "../utils/apiFilters"
 
 
 // Get all rooms => /api/rooms
 export const allRooms = catchAsyncErrors(async (req: NextRequest) => {
+  const resPerPage: number = 4;
 
-  const resPerPage: number = 8;
-
-  // const rooms = await Room.find();
-
-  const { searchParams } = new URL(req.url);
+  const {searchParams} = new URL(req.url);
   console.log(searchParams);
 
-  const queryStr: any = {}
-
-  searchParams.forEach((value, key) => {
+  const queryStr: any = {};
+  
+  searchParams.forEach((value,key) => {
     queryStr[key] = value;
-  })
+  });
 
-  const roomsCount: number = await Room.countDocuments()
+  const roomsCount: number = await Room.countDocuments();
 
   const apiFilters = new APIFilters(Room, queryStr).search().filter();
 
-  const rooms:IRoom[] = await apiFilters.query
-  const filteredRoomsCount: number = rooms.length
+  let rooms:IRoom[] = await apiFilters.query;
+  const filteredRoomsCount: number = rooms.length;
 
   apiFilters.pagination(resPerPage);
-  rooms = await apiFilters.query;
+  rooms = await apiFilters.query.clone();
 
   return NextResponse.json({
     success: true,
+    roomsCount,
     filteredRoomsCount,
     resPerPage,
     rooms,
-  })
+  });
 });
+
 // Create new rooms => /api/rooms
 export const newRoom = catchAsyncErrors(async (req: NextRequest) => {
 
