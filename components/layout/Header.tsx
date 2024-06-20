@@ -34,7 +34,7 @@ const Header = () => {
                                     width="50"
                                 />
                             </figure>
-                            <span className="placeholder-glow ps-1">Avinton Front</span>
+                            <span className="placeholder-glow ps-1">Ayano Takita</span>
                         </button>
 
                         <div

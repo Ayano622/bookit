@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "seeder": "tsc seeder/seeder.ts --outDir .temp && node .temp/seeder/seeder.js && rm -rf .temp"
+    "seeder": "tsc seeder/seeder.ts --outDir .temp && node .temp/seeder/seeder.js && rm -rf .temp",
+    "clean:ts": "rm -rf ./node_modules/.cache/ts"
   },
   "dependencies": {
     "bootstrap": "^5.3.3",
@@ -15,7 +16,10 @@
     "next": "14.2.4",
     "next-connect": "^1.0.0",
     "react": "^18",
+    "react-awesome-stars-rating": "^0.16.2",
     "react-dom": "^18",
+    "react-hot-toast": "^2.4.1",
+    "react-simple-star-rating": "^5.1.7",
     "react-star-ratings": "^2.3.0"
   },
   "devDependencies": {
