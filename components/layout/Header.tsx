@@ -1,17 +1,15 @@
-import React from 'react'
+import React from 'react';
 
 const Header = () => {
     return (
-
-
         <nav className="navbar sticky-top py-2">
             <div className="container">
                 <div className="col-6 col-lg-3 p-0">
                     <div className="navbar-brand">
                         <a href="/">
                             <img
-                                style={{cursor: "pointer"}}
-                                src="images/bookit_logo.png"
+                                style={{ cursor: "pointer" }}
+                                src="/images/bookit_logo.png"
                                 alt="BookIT"
                             />
                         </a>
@@ -36,7 +34,7 @@ const Header = () => {
                                     width="50"
                                 />
                             </figure>
-                            <span className="placeholder-glow ps-1"> John Doe</span>
+                            <span className="placeholder-glow ps-1">Avinton Front</span>
                         </button>
 
                         <div
@@ -52,8 +50,7 @@ const Header = () => {
                 </div>
             </div>
         </nav>
-
-    )
-}
+    );
+};
 
 export default Header;
