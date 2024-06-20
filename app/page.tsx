@@ -1,9 +1,17 @@
-import Image from "next/image";
-import styles from "./page.module.css";
 import Home from "@/components/Home";
+import Error from "./error";
 
-export default function HomePage() {
-  return (
-    <Home />
-  );
+export const dynamic = 'force-dynamic';
+
+const getRooms = async () => {
+  const res = await fetch(`${process.env.API_URL}/api/rooms`);
+  return res.json()
+};
+
+export default async function HomePage() {
+  const rooms = await getRooms();
+  console.log(rooms);
+
+  return <Home rooms={rooms}/>;
+
 }

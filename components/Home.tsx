@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react'
 import RoomItem from './room/RoomItem';
 import toast from 'react-hot-toast';

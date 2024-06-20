@@ -11,8 +11,9 @@ export const allRooms = catchAsyncErrors(async (req: NextRequest) => {
   const resPerPage: number = 4;
 
   const {searchParams} = new URL(req.url);
-  console.log(searchParams);
 
+  throw new ErrorHandler("hello", 400);
+  
   const queryStr: any = {};
   
   searchParams.forEach((value,key) => {
@@ -31,7 +32,6 @@ export const allRooms = catchAsyncErrors(async (req: NextRequest) => {
 
   return NextResponse.json({
     success: true,
-    roomsCount,
     filteredRoomsCount,
     resPerPage,
     rooms,
