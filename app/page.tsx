@@ -9,9 +9,11 @@ const getRooms = async () => {
 };
 
 export default async function HomePage() {
-  const rooms = await getRooms();
-  console.log(rooms);
-
-  return <Home rooms={rooms}/>;
+  const data = await getRooms();
+  if (data?.message){
+    return <Error error={data} />;
+  }
+  return <Home data={data} />;
 
 }
+ 
