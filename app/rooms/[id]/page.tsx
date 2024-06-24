@@ -18,7 +18,6 @@ export default async function RoomDetalisPage({params}:Props) {
   if (data?.message){
     return <Error error={data} />;
   }
-  console.log(data);
   return <RoomDetails data={data} />;
 
 }

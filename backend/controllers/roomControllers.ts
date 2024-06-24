@@ -8,7 +8,7 @@ import APIFilters from "../utils/apiFilters"
 
 // Get all rooms => /api/rooms
 export const allRooms = catchAsyncErrors(async (req: NextRequest) => {
-  const resPerPage: number = 14;
+  const resPerPage: number = 2;
 
   const {searchParams} = new URL(req.url);
 
