@@ -35,7 +35,7 @@ export interface IRoom extends Document {
     isPetsAllowed: boolean;
     isRoomCleaning: boolean;
     rating: Number;
-    numOfReviews: Number;
+    numOfReviews: number;
     images: IImage[];
     category: string;
     reviews: IReview[];
