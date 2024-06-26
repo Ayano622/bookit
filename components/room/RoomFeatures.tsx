@@ -16,7 +16,7 @@ const RoomFeatures = ({room}: Props) => {
             </div>
             <div className="room-feature">
               <i className="fa fa-cog fa-fw fa-bed" aria-hidden="true"></i>
-              <p>{room?.numOfbeds} Beds</p>
+              <p>{room?.numOfBeds} Beds</p>
             </div>
             <div className="room-feature">
               <i className="fa fa-check text-success" aria-hidden="true"></i>

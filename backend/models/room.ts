@@ -28,7 +28,7 @@ export interface IRoom extends Document {
     address: string;
     location:ILocation;
     guestCapacity: number;
-    numOfbeds: number;
+    numOfBeds: number;
     isInternet: boolean;
     isAirConditioned: boolean;
     isBreakfast: boolean;
@@ -45,7 +45,7 @@ export interface IRoom extends Document {
 }
 
 
-const roomSchema: Schema = new Schema({
+const roomSchema: Schema<IRoom> = new Schema({
     name: {
         type: String,
         required: [true, "Please enter room name"],

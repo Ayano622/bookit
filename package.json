@@ -11,9 +11,11 @@
     "clean:ts": "rm -rf ./node_modules/.cache/ts"
   },
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "bootstrap": "^5.3.3",
     "mongoose": "^8.4.1",
     "next": "14.2.4",
+    "next-auth": "^4.24.7",
     "next-connect": "^1.0.0",
     "react": "^18",
     "react-awesome-stars-rating": "^0.16.2",
