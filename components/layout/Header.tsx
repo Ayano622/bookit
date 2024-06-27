@@ -1,6 +1,15 @@
-import React from 'react';
+"use client"
+import React from "react";
+import Link from "next/link";
+import { useSession } from "next-auth/react";
+
 
 const Header = () => {
+
+    const {data} = useSession();
+    console.log(data);
+
+    
     return (
         <nav className="navbar sticky-top py-2">
             <div className="container">
@@ -34,19 +43,28 @@ const Header = () => {
                                     width="50"
                                 />
                             </figure>
-                            <span className="placeholder-glow ps-1">Ayano Takita</span>
+                            <span className="placeholder-glow ps-1"> John Doe</span>
                         </button>
 
                         <div
                             className="dropdown-menu w-100"
                             aria-labelledby="dropdownMenuButton1"
                         >
-                            <a href="/admin/dashboard" className="dropdown-item">Dashboard</a>
-                            <a href="/bookings/me" className="dropdown-item">My Bookings</a>
-                            <a href="/me/update" className="dropdown-item">Profile</a>
-                            <a href="/" className="dropdown-item text-danger">Logout</a>
+                            <a href="/admin/dashboard" className="dropdown-item">
+                                Dashboard
+                            </a>
+                            <a href="/bookings/me" className="dropdown-item">
+                                My Bookings
+                            </a>
+                            <a href="/me/update" className="dropdown-item">
+                                Profile
+                            </a>
+                            <a href="/" className="dropdown-item text-danger">
+                                Logout
+                            </a>
                         </div>
                     </div>
+                    <Link href="/login" className="btn btn-danger px-4 text-white login-header-btn float-right">LogIn</Link>
                 </div>
             </div>
         </nav>
